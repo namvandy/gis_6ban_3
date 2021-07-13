@@ -1,0 +1,28 @@
+.header{
+    text-align:center
+}
+
+.footer{
+    text-align:center;
+
+}
+
+.pragmatic_header_logo {
+    font-family: 'Zen Loop', cursive;
+    font-weight: bold;
+    margin: 2rem 0;
+}
+.pragmatic_header_button {
+    margin-bottom: 2rem;
+    font-family: 'Zen Loop', cursive;
+}
+
+.pragmatic_footer_logo {
+    margin-top: 2rem;
+    font-family: 'Zen Loop', cursive;
+}
+
+.pragmatic_footer_button {
+    margin-top: 1.5rem;
+
+}
