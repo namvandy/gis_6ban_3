@@ -23,6 +23,7 @@ def decorator(func):
 @decorator
 def rec_volume(w,h):
     print('사각형 너비:', w*h)
+
 @decorator
 def tri_volume(w,h):
     print('삼각형 너비:', w*h/2)
