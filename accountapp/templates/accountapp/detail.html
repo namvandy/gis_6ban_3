@@ -9,7 +9,8 @@
             {% if target_user.profile %}
                 <img src="{{ target_user.profile.image.url }}" alt="profile image" class="profile_image m-4">
                 <h2 class="NNS_B">{{ target_user.profile.nickname }}</h2>
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
+                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                    class="material-icons round_button">edit</a>
                 <h5>{{ target_user.profile.message }}</h5>
             {% else %}
                 <h2><a href="{% url 'profileapp:create' %}">

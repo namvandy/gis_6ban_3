@@ -33,7 +33,6 @@ def hello_world(request):
                       context={'new_hello_list': new_hello_list, 'method':'get'})
 
 
-
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
