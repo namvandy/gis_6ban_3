@@ -22,6 +22,7 @@ class ProfileCreationView(CreateView):
     def form_valid(self, form): # 성공했을 때 실행되는 함수
         form.instance.user = self.request.user
         return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={ 'pk' : self.object.user.pk })
 
