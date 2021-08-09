@@ -1,35 +1,31 @@
 {% extends 'base.html' %}
-{% load static %}
 
 
 {% block content %}
-    <style>
-        .container img{
-          height: 500px;
-            width: 300px;
-        }
-    </style>
+
+
     <div class="container text-center">
         <div class="my-5">
-            {#  제목, 글쓴이, 작성일자 #}
-            <h1 class = "NNS_B">{{ tartget_article.title }}</h1>
+            {#      제목, 글쓴이, 작성일자      #}
+            <h1 class="NNS_B">{{ target_article.title }}</h1>
             <h3>{{ target_article.writer.profile.nickname }}</h3>
             <p>{{ target_article.created_at }}</p>
-            <div class="article_content">
-                {{ tartget_article.content }}
-            </div>
         </div>
 
         <hr>
 
         <div class="my-5">
-            {#  게시글 대표 이미지, 게시글 내용  #}
-            <img src="{{ target_article.image.url }}" alt=""{# death text : alt #}
-            class="article_image">
-
+            {#      게시글 대표 이미지, 게시글 내용      #}
+            <img src="{{ target_article.image.url }}"
+                 class="article_image"
+                 alt="">
+            <div class="article_content my-5">
+                {{ target_article.content }}
+            </div>
             {% if target_article.writer == user %}
-            <div class="my-5">
-                <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-success rounded-pill px-5">
+            <div>
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                   class="btn btn-success rounded-pill px-5">
                     Update
                 </a>
                 <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
@@ -40,14 +36,12 @@
             {% endif %}
         </div>
 
-    <hr>
-    <div>
-        {#     댓글 내용, 댓글 작성     #}
+        <hr>
 
-    </div>
-
+        <div>
+            {#      댓글 내용, 댓글 작성      #}
+        </div>
     </div>
 
 
 {% endblock %}
-
