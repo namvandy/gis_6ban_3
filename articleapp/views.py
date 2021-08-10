@@ -45,6 +45,7 @@ class ArticleUpdateView(UpdateView):
     def get_success_url(self):# self.object는 target_object와 동일하다고 보면 됨
         return reverse('articleapp:detail', kwargs={'pk':self.object.pk})
 
+
 class ArticleDeleteView(DeleteView):
     model = Article
     context_object_name = 'target_article'
