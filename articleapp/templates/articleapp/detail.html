@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-
 
     <div class="container text-center">
         <div class="my-5">
@@ -38,8 +36,28 @@
 
         <hr>
 
-        <div>
+        <div class="text-center my-4">
             {#      댓글 내용, 댓글 작성      #}
+            {% for comment in target_article.comment.all %}
+                <div class="comment_box">
+
+                    <div>
+                        <span style="font-size: 1.4rem;"
+                        class="NNS_B">
+                            {{ comment.writer.profile.nickname }}
+                        </span>{# writer는 객체 그 자체이다. #}
+                        <span>{{ comment.created_at }}</span>
+                    </div>
+                    <div>
+                        <p>
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% include 'commentapp/create.html' %}
+
         </div>
     </div>
 
