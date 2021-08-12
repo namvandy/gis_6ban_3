@@ -75,3 +75,10 @@
     border-radius: 1rem;
     margin: 1rem;
 }
+/*screen의 크기가 500px 이하인 경우*/
+@media screen and (max-width:500px){
+    html{
+        /* 기본 폰트 사이트는 16px */
+        font-size:10px;
+    }
+}
