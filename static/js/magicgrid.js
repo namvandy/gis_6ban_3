@@ -277,10 +277,11 @@ MagicGrid.prototype.listen = function listen () {
 let magicGrid = new MagicGrid({
   container: '.container',
   animate: true,
-  gutter: 30,
+  gutter: 12, // 마진 간격
   static: true,
   useMin: true
 });
+
 var masonrys = document.getElementsByTagName("img")
 
 for(let i=0; i < masonrys.length; i++){
