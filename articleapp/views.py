@@ -18,7 +18,7 @@ from commentapp.forms import CommentCreationForm
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreationForm
-    success_url = reverse_lazy('articleapp:list')
+    # success_url = reverse_lazy('articleapp:list')
     template_name = 'articleapp/create.html'
     def form_valid(self, form):
         form.instance.writer = self.request.user # Foreign Key 지정하여 삽입하기 위한 코드
