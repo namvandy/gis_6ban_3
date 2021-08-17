@@ -8,22 +8,23 @@
         .container{
             padding: 0;
             margin: 0 auto; {# 좌우 정렬 오토 #}
-
         }
 
         .container div {
-            width: 45%;
-            max-width: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 1rem;
             flex-direction: column;
-            box-shadow: 0 0 .5rem darkgray;
+            {#box-shadow: 0 0 .5rem darkgray;#}
+            {# 그림자 효과 제거#}
         }
 
         .container img {
-            width: 100%;
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover;
+            {# 외곡없는 이미지로 변경하는 방법 : object-fit: cover #}
             border-radius: 1rem;
         }
 
@@ -39,8 +40,9 @@
                     <img src="{{ project.image.url }}" alt="">
                 </a>
 
-                <span class="NNS_B m-2">{{ project.name }}</span>
-
+                <span class="NNS_B m-2">{{ project.name | truncatechars:7 }}</span>
+                {# truncatechars:n 글자를 자르는 장고의 기능 #}
+                {#  장고의 내장 기능#}
             </div>
 
         {% endfor %}
