@@ -23,12 +23,13 @@ class ProjectCreateView(CreateView):
     def get_success_url(self):
         return reverse("projectapp:detail" , kwargs={"pk":self.object.pk})
 
-class ProjectDetailView(DetailView, MultipleObjectMixin): # 여러개의 mixin object를 다룰 수 있음 : multiplemixin
+
+class ProjectDetailView(DetailView, MultipleObjectMixin):
     model = Project
-    context_object_name='target_project'
+    context_object_name = 'target_project'
     template_name = 'projectapp/detail.html'
 
-    # paginate_by = 20
+    paginate_by = 20
 
     def get_context_data(self, **kwargs):
         article_list = Article.objects.filter(project=self.object)
