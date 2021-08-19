@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
+from projectapp.models import Project
+
 
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='article', null=True)
@@ -11,6 +13,11 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article/')
     content = models.TextField(null=True)
     created_at = models.DateField(auto_now_add = True, null=True)
+    
+    # 어떤 게시글이 연길되어 있는지 설정
+    # 게시글과 프로젝트의 연결고리
+    project = models.ForeignKey(Project, on_delete = models.SET_NULL, related_name = 'article', null=True)
+
 
 
 
