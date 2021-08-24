@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -23,6 +24,11 @@ class LikeArticleView(RedirectView):
 
         like_record : list = LikeRecord.objects.filter(user=user, article=article)
         if like_record.exists():
+            # 좋아요가 반영되지 않는 경우/ 좋아요 X -> error message 전달
+            # messages module
+            messages.add_message(request, messages.ERROR, '좋아요는 한 번만 가능합니다.')
+            ####
+
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk':kwargs['article_pk']}))
         else:
             LikeRecord(user=user, article=article).save()
@@ -30,6 +36,9 @@ class LikeArticleView(RedirectView):
         article.like += 1
         article.save() # 실제 db에 저장까지 해주어야 반영된다.
 
+        # 좋아요가 반영되는 경우 / 좋아요 O -> success message
+        messages.add_message(request, messages.SUCCESS, '좋아요가 반영되었습니다.')
+        ####
 
         return super().get(self, request, *args, **kwargs)
 
