@@ -26,7 +26,10 @@ class LikeArticleView(RedirectView):
         if like_record.exists():
             # 좋아요가 반영되지 않는 경우/ 좋아요 X -> error message 전달
             # messages module
-            messages.add_message(request, messages.ERROR, '좋아요는 한 번만 가능합니다.')
+            messages.add_message(request, messages.ERROR, '좋아요가 취소되었습니다.')
+            article.like -= 1
+            like_record.delete()
+            article.save()
             ####
 
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk':kwargs['article_pk']}))

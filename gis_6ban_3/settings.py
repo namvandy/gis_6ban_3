@@ -14,7 +14,9 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.contrib import messages
 from django.urls import reverse_lazy
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 local_env = open(os.path.join(BASE_DIR, '.env'))
@@ -41,6 +43,10 @@ SECRET_KEY = env['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ['*', '172.16.243.68']
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 # Application definition
 

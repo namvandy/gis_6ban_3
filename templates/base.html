@@ -10,7 +10,7 @@
 {# messages는 장고가 제공하는 것이기 때문에 그냥 접근할 수 있는 것임. #}
 {% for message in messages %}
     <div style="text-align:center">
-        <div class="btn btn-success round_pill px-5">
+        <div class="btn btn-{{ message.tags }} round_pill px-5">
             {{ message }}
         </div>
 
