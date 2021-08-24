@@ -54,6 +54,7 @@ class SubscriptionListView(ListView):
             print(pro)
         article_list = Article.objects.filter(project__in = project_list)
         print(article_list)
+        # article_list를 가져오는 것임 Not project_list
         # 구독 중인 article 리스트를 반환
         return article_list
 
