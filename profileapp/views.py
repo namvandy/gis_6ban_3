@@ -16,7 +16,6 @@ from profileapp.models import Profile
 class ProfileCreationView(CreateView):
     model = Profile
     form_class = ProfileCreationForm
-    # success_url = reverse_lazy("accountapp:hello_world")
     template_name = 'profileapp/create.html'
 
     def form_valid(self, form): # 성공했을 때 실행되는 함수
