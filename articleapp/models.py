@@ -16,7 +16,7 @@ class Article(models.Model):
     
     # 어떤 게시글이 연길되어 있는지 설정
     # 게시글과 프로젝트의 연결고리
-    project = models.ForeignKey(Project, on_delete = models.SET_NULL, related_name = 'article', null=True)
+    project = models.ForeignKey(Project, on_delete = models.SET_NULL, related_name = 'article', null=True, blank=True)
 
     # likeapp 과 연결된 칼럼
     like = models.IntegerField(default=0) # 새로운 글을 썼을 때, default 0 으로 자동 저장됨.
