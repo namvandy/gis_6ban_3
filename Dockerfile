@@ -1,7 +1,5 @@
 FROM python:3.9.0
 
-RUN echo '/usr/local/bin/python -m pip install --upgrade pip'
-
 WORKDIR /home/
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
