@@ -6,7 +6,7 @@ RUN ECHO 'abc'
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
-WORKDIR /home/gis_6ban_3/
+WORKDIR /home/dhkang/
 
 RUN echo "SECRET_KEY=django-insecure-_4itnwwqc+v1p+f-0-vl1y)x=h@5)qqh8@7hko##0guah@aj(m" > .env
 
