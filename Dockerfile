@@ -2,8 +2,6 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN ECHO 'abc'
-
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
 WORKDIR /home/dhkang/
