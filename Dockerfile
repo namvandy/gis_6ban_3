@@ -1,10 +1,10 @@
 FROM python:3.9.0
 
-WORKDIR /home/
+WORKDIR /home/dhkang/
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
-WORKDIR /home/dhkang/
+WORKDIR /home/dhkang/gis_6ban_3/
 
 RUN pip install --upgrade pip
 
@@ -19,5 +19,3 @@ RUN python manage.py collectstatic
 EXPOSE 8000
 
 CMD ["gunicorn", "gis_6ban_3.wsgi", "--bind", "0.0.0.0:8000"]
-
-    
