@@ -54,7 +54,7 @@ secrets:
   DJANGO_SECRET_KEY:
     external: true
   MARIADB_ROOT_PASSWORD:
-    external: ture
+    external: true
   MARIADB_PASSWORD:
     external: true
   MARIADB_USER:
