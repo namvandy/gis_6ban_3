@@ -1,6 +1,6 @@
 from .base import *
 
-local_env = open(os.path.join(BASE_DIR, '.env'))
+
 
 def read_secret(secret_name):
     # 파일 경로를 알고 있다. -> /run/secrets/DJANGO_SECRET_KEY
