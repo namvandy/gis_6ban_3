@@ -18,8 +18,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*', '172.16.243.68']
 
-
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
