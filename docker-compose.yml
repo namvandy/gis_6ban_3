@@ -12,7 +12,7 @@ services:
       - gis_6ban_static:/data/static/
       - gis_6ban_media:/data/media/
       - gis_log:/var/log/nginx/
-      -
+
   django:
     image: gis_6ban_django:5
     networks:
