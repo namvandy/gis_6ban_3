@@ -1,8 +1,8 @@
-FROM python:3.8.2
+FROM python:3.9.7
 
 WORKDIR /home/
 
-RUN echo "gogo"
+RUN echo "gogoing"
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
