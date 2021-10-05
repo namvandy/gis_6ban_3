@@ -11,7 +11,26 @@ from articleapp.decorators import article_ownership_required
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
 from commentapp.forms import CommentCreationForm
+import requests
+import re
+from pysentimiento import EmotionAnalyzer
+emotion_analyzer = EmotionAnalyzer(lang="en")
 
+def transrate(data):
+    url = 'https://translate.kakao.com/translator/translate.json'
+    headers = {
+        "Referer": "https://translate.kakao.com/",
+        "User-Agent": "Mozilla/5.0"
+    }
+    query = {
+        "queryLanguage": "ko",
+        "resultLanguage": "en",
+        "q": data
+    }
+    resp = requests.post(url, headers=headers, data=query)
+    query = resp.json()
+    output = query['result']['output'][0][0]
+    return output
 
 @method_decorator(login_required, 'get')
 @method_decorator(login_required, 'post')
@@ -25,6 +44,19 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):# self.object는 target_object와 동일하다고 보면 됨
+        obj = Article.objects.get(pk=self.object.id)
+        content = obj.content
+        content = re.sub('<.>|</.>', '', content)
+        transrated_content = transrate(content)
+        emotion = emotion_analyzer.predict(transrated_content)
+        obj.others = emotion.probas['others']
+        obj.joy = emotion.probas['joy']
+        obj.surprise = emotion.probas['surprise']
+        obj.disgust = emotion.probas['disgust']
+        obj.anger = emotion.probas['anger']
+        obj.sadness = emotion.probas['sadness']
+        obj.fear = emotion.probas['fear']
+        obj.save()
         return reverse('articleapp:detail', kwargs={'pk':self.object.pk})
 
 class ArticleDetailView(DetailView, FormMixin):

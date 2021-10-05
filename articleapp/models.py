@@ -22,3 +22,13 @@ class Article(models.Model):
     like = models.IntegerField(default=0) # 새로운 글을 썼을 때, default 0 으로 자동 저장됨.
 
 
+    # emotion
+    joy = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    sadness = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    fear = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    surprise = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    disgust = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    anger = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+    others = models.DecimalField(max_digits=5, decimal_places=3, null=True)
+
+

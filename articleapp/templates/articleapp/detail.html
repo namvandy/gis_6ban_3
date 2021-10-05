@@ -18,6 +18,26 @@
             {# Like App : 좋아요 기능 이식 END #}
             <h3>{{ target_article.writer.profile.nickname }}</h3>
             <p>{{ target_article.created_at }}</p>
+            <div>
+                <p>
+                    joy : {{ target_article.joy }}
+                </p>
+                <p>
+                    sadness : {{ target_article.sadness }}
+                </p>
+                <p>
+                    fear : {{ target_article.fear }}
+                </p>
+                <p>
+                    surprise : {{ target_article.surprise }}
+                </p>
+                <p>
+                    disgust : {{ target_article.disgust }}
+                </p>
+                <p>
+                    anger : {{ target_article.anger }}
+                </p>
+            </div>
         </div>
 
         <hr>
@@ -66,6 +86,7 @@
                     <div>
                         <p>
                             {{ comment.content }}
+
                         </p>
                     </div>
                 {% if comment.writer == user %}
