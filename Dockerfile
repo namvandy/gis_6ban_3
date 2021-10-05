@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "DDDDD"
+RUN echo "abcdefg"
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
