@@ -1,8 +1,8 @@
-FROM python:3.9
+FROM python:3.8.2
 
 WORKDIR /home/
 
-RUN echo "sd"
+RUN echo "ssssssssssss"
 
 RUN git clone https://github.com/dhkangBsn/gis_6ban_3.git
 
