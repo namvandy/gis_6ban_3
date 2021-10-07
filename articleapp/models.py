@@ -31,4 +31,8 @@ class Article(models.Model):
     anger = models.DecimalField(max_digits=5, decimal_places=3, null=True)
     others = models.DecimalField(max_digits=5, decimal_places=3, null=True)
 
+    # 공개, 비공개
+    is_private = models.BooleanField(default=False)
+
+
 

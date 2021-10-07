@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.views.generic.edit import FormMixin
 
-from articleapp.decorators import article_ownership_required
+from articleapp.decorators import article_ownership_required, article_is_private
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
 from commentapp.forms import CommentCreationForm
@@ -59,12 +59,12 @@ class ArticleCreateView(CreateView):
         obj.save()
         return reverse('articleapp:detail', kwargs={'pk':self.object.pk})
 
+
 class ArticleDetailView(DetailView, FormMixin):
     model = Article
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
     form_class = CommentCreationForm
-
 
 @method_decorator(article_ownership_required, 'get')
 @method_decorator(article_ownership_required, 'post')
